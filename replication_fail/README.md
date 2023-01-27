@@ -9,7 +9,7 @@ Source bucket remains fully operational when replication target fails.
 - Set up server-side bucket replication from PRIMARY to BACKUP
 - Copy a file into the source bucket
 - Check file stats and make sure its replication status is COMPLETED
-- Stop the BACKUP deployment
+- Pause the BACKUP deployment
 - Copy the same file into the source bucket again
 - Check file stats. Replication status is PENDING now, as BACKUP deployment is down
 - Copy the same file into the source bucket again. Operation will stuck.
