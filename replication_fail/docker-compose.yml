@@ -1,0 +1,18 @@
+version: "3.7"
+services:
+  primary:
+    image: quay.io/minio/minio:latest
+    command: server /data --console-address ":9001"
+  backup:
+    image: quay.io/minio/minio:latest
+    command: server /data --console-address ":9001"
+  client:
+    image: minio/mc:latest
+    depends_on:
+      - primary
+      - backup
+    volumes:
+      - ./:/test
+    entrypoint: ["/test/init.sh"]
+    command: ["sh"]
+    working_dir: "/test"
