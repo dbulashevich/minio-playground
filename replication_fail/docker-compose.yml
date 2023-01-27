@@ -10,7 +10,6 @@ services:
     image: minio/mc:latest
     depends_on:
       - primary
-      - backup
     volumes:
       - ./:/test
     entrypoint: ["/test/init.sh"]
